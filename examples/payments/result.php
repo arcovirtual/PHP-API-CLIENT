@@ -21,13 +21,15 @@ try {
 	$flowApi = new FlowApi();
 	$response = $flowApi->send($serviceName, $params, "GET");
 	
-	print_r($response);
-// resultado $response = array(9) { ["flowOrder"]=> int(35779) ["commerceOrder"]=> string(4) "1961" 
+// resultado $response = Array ( [flowOrder] => 35780 [commerceOrder] => 1231 [requestDate] => 2018-09-29 06:49:56 [status] => 2 
 // recorremos el array resultado	
-	foreach($response as $flowordervalor => $ordennumero)
-	{ echo  "Numero de Orden: <b> $ordennumero </b> "; }
-	// y asi siguen extrayendo info no se si se podran
-	//usar las variables nuevas como $ordennumero para ser usada en otras integraciones deberia poder.
+	foreach($response as $titulodato=>$valordato)
+	{
+	echo "- " . $titulodato . " : " . $valordato . "</br>";
+	}
+	
+	print_r($response);
+//	var_dump($response);
 	
 } catch (Exception $e) {
 	echo "Error: " . $e->getCode() . " - " . $e->getMessage();
